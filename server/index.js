@@ -6,7 +6,9 @@ require("dotenv").config();
 // is not required when starting the application
 require("./database/client").checkConnection();
 
+
 // Import the Express application from app/config.js
+
 const app = require("./app/config");
 
 // Get the port from the environment variables
@@ -20,3 +22,9 @@ app
   .on("error", (err) => {
     console.error("Error:", err.message);
   });
+
+app.get("/", (req, res) => {
+  res.send("Welcome to Wild Series!");
+});
+
+module.exports = app;
